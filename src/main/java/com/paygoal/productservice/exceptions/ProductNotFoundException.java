@@ -1,5 +1,4 @@
 package com.paygoal.productservice.exceptions;
-
 public class ProductNotFoundException extends Exception{
 
     public ProductNotFoundException(String message) {

@@ -9,7 +9,6 @@ import com.paygoal.productservice.persistance.entity.Product;
 import com.paygoal.productservice.persistance.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -83,6 +82,15 @@ public class ProductService {
         return products.stream()
                 .map(product -> objectMapper.convertValue(product, ProductDTO.class))
                 .collect(Collectors.toList());
+    }
+
+
+    public void deleteProduct(Long id) throws ProductNotFoundException {
+        Optional<Product> existingProductOptional = productRepository.findById(id);
+        if (existingProductOptional.isEmpty()) {
+            throw new ProductNotFoundException("Product with ID " + id + " not found.");
+        }
+        productRepository.delete(existingProductOptional.get());
     }
 
 

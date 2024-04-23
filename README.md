@@ -8,7 +8,7 @@
 
 La documentación de la API se encuentra en una colección de Postman. Descargar el archivo de la colección de Postman desde [aca](src/docs/product-service.postman_collection.json).
 
-## Endpoints
+## Aclaracion
 
 ### Endpoint `/products/search`
 
